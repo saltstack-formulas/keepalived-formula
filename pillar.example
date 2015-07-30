@@ -1,0 +1,41 @@
+#
+# Example pillar configuration
+#
+
+keepalived:
+  global_defs:
+    notificaiton_emails:
+      - alerts@example.com
+    smtp_server: 'mymail.example.com'
+    smtp_connect_timeout: 30
+  
+  vrrp_scripts:
+    chk_haproxy:
+      script: "killall -0 haproxy"
+      interval: 2
+  
+  vrrp_instances:
+    testhaproxy:
+      interface: eth0
+      priority: 10
+      virtual_router_id: 01
+      smtp_alert: True
+      authentication:
+        auth_type: PASS
+        auth_pass: topsecret
+      virtual_ipaddresses:
+        - "10.20.30.40"
+        - "10.20.30.41"
+        - "10.20.30.42"
+      track_scripts:
+        - chk_haproxy
+
+#
+# Example Addition Pillar for Master
+#
+
+keepalived:
+  vrrp_instances:
+    testhaproxy:
+      state: MASTER
+      priority: 101
