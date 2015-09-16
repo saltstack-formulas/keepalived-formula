@@ -10,7 +10,7 @@
 # Global settings
 #---------------------------------------------------------------------
 global_defs {
-    notification_email { 
+    notification_email {
 {%- if 'notification_emails' in salt['pillar.get']('keepalived:global_defs')  %}
   {%- for email in salt['pillar.get']('keepalived:global_defs:notification_emails', {}).iteritems() %}
         {{ email }}
@@ -22,6 +22,7 @@ global_defs {
 {%- if 'smtp_timeout' in salt['pillar.get']('keepalived:global_defs')  %}
     smtp_timeout {{ salt['pillar.get']('keepalived:defaults:smtp_timeout') }}
 {%- endif %}
+}
 
 #---------------------------------------------------------------------
 # static network configuration
@@ -35,7 +36,7 @@ static_ipaddress {
 }
 {%- endif %}
 
-# static routes 
+# static routes
 {%- if 'static_routes' in salt['pillar.get']('keepalived') %}
 static_route {
   {%- for route in salt['pillar.get']('keepalived:static_routes', {}).iteritems() %}
