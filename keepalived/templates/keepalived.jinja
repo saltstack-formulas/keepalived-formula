@@ -38,7 +38,7 @@ static_ipaddress {
 
 # static routes
 {%- if 'static_routes' in salt['pillar.get']('keepalived') %}
-static_route {
+static_routes {
   {%- for route in salt['pillar.get']('keepalived:static_routes', {}).iteritems() %}
     {{ route}}
   {%- endfor %}
@@ -189,7 +189,7 @@ vrrp_instance {{ instance[1].get('name', instance[0]) }} {
     }
   {%- endif %}
   {%- if 'virtual_routes' in instance[1] %}
-    virtual_route {
+    virtual_routes {
     {%- for virtual_route in instance[1].virtual_routes %}
         {{ virtual_route }}
     {%- endfor%}
