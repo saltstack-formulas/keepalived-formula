@@ -12,7 +12,7 @@
 global_defs {
     notification_email {
 {%- if 'notification_emails' in salt['pillar.get']('keepalived:global_defs')  %}
-  {%- for email in salt['pillar.get']('keepalived:global_defs:notification_emails', {}).iteritems() %}
+  {%- for email in salt['pillar.get']('keepalived:global_defs:notification_emails', []) %}
         {{ email }}
   {%- endfor %}
 {%- endif %}
