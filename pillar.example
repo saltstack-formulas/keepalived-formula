@@ -4,7 +4,7 @@
 
 keepalived:
   global_defs:
-    notificaiton_emails:
+    notification_emails:
       - alerts@example.com
     smtp_server: 'mymail.example.com'
     smtp_connect_timeout: 30
