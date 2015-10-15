@@ -130,7 +130,7 @@ vrrp_instance {{ instance[1].get('name', instance[0]) }} {
     {%- endfor%}
     }
   {%- endif %}
-  {%- if 'dont_tack_primary' in instance[1] and instance[1].get('dont_track_primary') %}
+  {%- if 'dont_track_primary' in instance[1] and instance[1].get('dont_track_primary') %}
     dont_track_primary
   {%- endif %}
   {%- if 'mcast_src_ip' in instance[1] %}
