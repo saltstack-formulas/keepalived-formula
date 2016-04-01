@@ -19,8 +19,8 @@ global_defs {
     }
     notification_email_from {{ salt['pillar.get']('keepalived:global_defs:notification_email_from', 'keepalived@'~salt['grains.get']('fqdn') ) }}
     smtp_server {{ salt['pillar.get']('keepalived:global_defs:smtp_server', 'localhost') }}
-{%- if 'smtp_timeout' in salt['pillar.get']('keepalived:global_defs')  %}
-    smtp_timeout {{ salt['pillar.get']('keepalived:global_defs:smtp_timeout') }}
+{%- if 'smtp_connect_timeout' in salt['pillar.get']('keepalived:global_defs')  %}
+    smtp_connect_timeout {{ salt['pillar.get']('keepalived:global_defs:smtp_connect_timeout') }}
 {%- endif %}
 }
 
