@@ -13,9 +13,9 @@
 
 {%- macro config_entries(data) -%}
   {%- if data is mapping -%}
-    {%- for entry_type in data|dictsort -%}
-{{ entry_type }} {
-{{ config_entries(data[entry_type]) }}
+    {%- for entry in data|dictsort -%}
+{{ entry[0] }} {
+{{ config_entries(entry[1]) }}
 }{{ '\n' }}
     {%- endfor -%}
   {%- endif -%}
