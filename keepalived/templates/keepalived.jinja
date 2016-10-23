@@ -14,7 +14,9 @@
 {%- macro config_entries(data) -%}
   {%- if data is mapping -%}
     {%- for entry_type in data|dictsort -%}
-{{ entry_type }}
+{{ entry_type }}{{ '\n' }}
     {%- endfor -%}
   {%- endif -%}
 {%- endmacro -%}
+
+[%- config_entries(keepalived_final_values) -%}
