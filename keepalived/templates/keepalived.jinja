@@ -16,7 +16,7 @@
     {%- for entry in data|dictsort -%}
 {{ entry[0]|indent(indents, True) }} {
 {{ config_entries(entry[1], indents + 2) }}
-}{{ '\n' }}
+{{ '}\n'|indent(indents, True) }}
     {%- endfor -%}
   {%- endif -%}
 {%- endmacro -%}
