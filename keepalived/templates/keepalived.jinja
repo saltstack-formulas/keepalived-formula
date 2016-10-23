@@ -4,17 +4,19 @@
 #
 # This file is managed by Salt.
 # Any changes will be overwritten.
-
+{{ '\n' }}
 {%- import_yaml 'keepalived/defaults.yaml' as keepalived_defaults %}
 {%- set keepalived_final_values = salt.pillar.get(
-    'keepalived',
+    'keepalived:',
     default=keepalived_defaults,
     merge=True) %}
 
 {%- macro config_entries(data) -%}
   {%- if data is mapping -%}
     {%- for entry_type in data|dictsort -%}
-{{ entry_type }}{{ '\n' }}
+{{ entry_type }} {
+{{ config_entries(data[entry_type]) }}
+}{{ '\n' }}
     {%- endfor -%}
   {%- endif -%}
 {%- endmacro -%}
