@@ -1,0 +1,6 @@
+---
+# keepalived/defaults.yaml
+
+keepalived:
+  global_defs:
+    smtp_server: localhost
