@@ -7,7 +7,7 @@
 {{ '\n' }}
 {%- import_yaml 'keepalived/defaults.yaml' as keepalived_defaults %}
 {%- set keepalived_final_values = salt.pillar.get(
-    'keepalived:',
+    'keepalived',
     default=keepalived_defaults,
     merge=True) %}
 
