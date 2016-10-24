@@ -13,7 +13,7 @@
 
 {%- macro config_entries(data, indents) -%}
   {%- if data is string or data is number -%}
-{{ string(data)|indent(indents, True) }}{{ '\n' }}
+{{ data|string|indent(indents, True) }}{{ '\n' }}
   {%- else -%}
     {%- if indents != 0 -%}
 {{- " {\n" -}}
