@@ -14,8 +14,10 @@
 {%- set groupings = ['vrrp_script', 'vrrp_sync_group', 'vrrp_instance', 
     'virtual_server_group', 'virtual_server', 'real_server'] -%}
 {%- macro config_entries(data, indents, carryover='') -%}
-  {%- if data is string or data is number or data is none -%}
+  {%- if data is string or data is number -%}
 {{ data|string|indent(indents, True) }}{{ '\n' }}
+  {%- elif data is none -%}
+{{ '\n' -}}
   {%- else -%}
     {%- if indents != 0 and not carryover -%}
 {{- " {\n" -}}
