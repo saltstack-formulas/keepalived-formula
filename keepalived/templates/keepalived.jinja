@@ -14,7 +14,7 @@
 {%- set groupings = ['vrrp_script', 'vrrp_sync_group', 'vrrp_instance', 
     'virtual_server_group', 'virtual_server', 'real_server'] -%}
 {%- macro config_entries(data, indents, carryover='') -%}
-  {%- if data is string or data is number -%}
+  {%- if data is string or data is number or data is not defined -%}
 {{ data|string|indent(indents, True) }}{{ '\n' }}
   {%- else -%}
     {%- if indents != 0 and not carryover -%}
@@ -29,9 +29,7 @@
 {{ carryover|indent(indents, True) }}{{ '  ' }}
           {%- endif -%}
 {{ entry[0]|indent(indents, True) }}
-          {%- if entry[1] is defined -%}
 {{- config_entries(entry[1], indents + 2) -}}
-          {%- endif -%}
         {%- endif -%}
       {%- endfor -%}
     {%- else -%}
