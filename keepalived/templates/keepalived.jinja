@@ -5,15 +5,15 @@
 # This file is managed by Salt.
 # Any changes will be overwritten.
 {{ '\n' }}
-{%- import_yaml 'keepalived/defaults.yaml' as keepalived_defaults %}
+{%- import_yaml 'keepalived/defaults.yaml' as keepalived_defaults -%}
 {%- set keepalived_final_values = salt.pillar.get(
     'keepalived',
     default=keepalived_defaults,
-    merge=True) %}
+    merge=True) -%}
 
 {%- macro config_entries(data, indents) -%}
   {%- if data is string or data is number -%}
-{{ data|indent(indents, True) }}{{ '\n' }}
+{{ string(data)|indent(indents, True) }}{{ '\n' }}
   {%- else -%}
     {%- if indents != 0 -%}
 {{- " {\n" -}}
