@@ -29,7 +29,9 @@
 {{ carryover|indent(indents, True) }}{{ '  ' }}
           {%- endif -%}
 {{ entry[0]|indent(indents, True) }}
+          {%- if entry[1] is defined -%}
 {{- config_entries(entry[1], indents + 2) -}}
+          {%- endif -%}
         {%- endif -%}
       {%- endfor -%}
     {%- else -%}
