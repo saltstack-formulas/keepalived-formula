@@ -13,9 +13,9 @@
 
 {%- macro config_entries(data, indents) -%}
   {%- if data is string or data is number -%}
-{{- " " }}{{ data }}
+{{- " " }}{{ data }}{{ '\n' }}
   {%- else -%}
-{{- " {" -}}
+{{- " {\n" -}}
     {%- if data is mapping -%}
       {%- for entry in data|dictsort -%}
 {{ entry[0]|indent(indents, True) }}
