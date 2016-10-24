@@ -26,7 +26,7 @@
 {{- config_entries(entry[1], indents, carryover=entry[0]) -}}
         {%- else -%}
           {%- if carryover -%}
-{{ carryover|indent(indents, True) }}
+{{ carryover|indent(indents, True) }}{{ '  ' }}
           {%- endif -%}
 {{ entry[0]|indent(indents, True) }}
 {{- config_entries(entry[1], indents + 2) -}}
