@@ -23,8 +23,11 @@
     {%- if data is mapping -%}
       {%- for entry in data|dictsort -%}
         {%- if entry[0] in groupings -%}
-{{- config_entries(entry[1], indents + 2, carryover=entry[0]) -}}
+{{- config_entries(entry[1], indents, carryover=entry[0]) -}}
         {%- else -%}
+          {%- if carryover -%}
+{{ carryover|indent(indents, True) }}
+          {%- endif -%}
 {{ entry[0]|indent(indents, True) }}
 {{- config_entries(entry[1], indents + 2) -}}
         {%- endif -%}
