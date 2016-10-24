@@ -12,10 +12,12 @@
     merge=True) %}
 
 {%- macro config_entries(data, indents) -%}
-  {%- if data is mapping -%}
+  {%- if data is string or data is number -%}
+{{- " " }}{{ data }}
+  {%- elif data is mapping -%}
     {%- for entry in data|dictsort -%}
 {{ entry[0]|indent(indents, True) }} {
-{{ config_entries(entry[1], indents + 2) }}
+{{- config_entries(entry[1], indents + 2) -}}
 {{ '}'|indent(indents, True) }}{{ '\n' }}
     {%- endfor -%}
   {%- endif -%}
