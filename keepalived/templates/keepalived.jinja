@@ -23,6 +23,10 @@
 {{ entry[0]|indent(indents, True) }}
 {{- config_entries(entry[1], indents + 2) -}}
       {%- endfor -%}
+    {%- else -%}
+      {%- for entry in data -%}
+{{- config_entries(entry, indents + 2) -}}
+      {%- endfor -%}
     {%- endif -%}
     {%- if indents != 0 -%}
 {{ '}'|indent(indents - 2, True) }}{{ '\n' }}
