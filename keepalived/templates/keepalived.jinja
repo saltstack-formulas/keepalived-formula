@@ -15,32 +15,32 @@
     'virtual_server_group', 'virtual_server', 'real_server'] -%}
 {%- macro config_entries(data, indents, carryover='') -%}
   {%- if data is string or data is number -%}
-{{ data|string|indent(indents, True) }}{{ '\n' }}
+    {{- data|string|indent(indents, True) }}{{ '\n' -}}
   {%- elif data is none -%}
-{{ '\n' -}}
+    {{- '\n' -}}
   {%- else -%}
     {%- if indents != 0 and not carryover -%}
-{{- " {\n" -}}
+      {{- " {\n" -}}
     {%- endif -%}
     {%- if data is mapping -%}
       {%- for entry in data|dictsort -%}
         {%- if entry[0] in groupings -%}
-{{- config_entries(entry[1], indents, carryover=entry[0]) -}}
+          {{- config_entries(entry[1], indents, carryover=entry[0]) -}}
         {%- else -%}
           {%- if carryover -%}
-{{ carryover|indent(indents, True) }}{{ '  ' }}
+            {{- carryover|indent(indents, True) }}{{ '  ' }}
           {%- endif -%}
-{{ entry[0]|indent(indents, True) }}
-{{- config_entries(entry[1], indents + 2) -}}
+            {{- entry[0]|indent(indents, True) }}
+            {{- config_entries(entry[1], indents + 2) -}}
         {%- endif -%}
       {%- endfor -%}
     {%- else -%}
       {%- for entry in data -%}
-{{- config_entries(entry, indents) -}}
+        {{- config_entries(entry, indents) -}}
       {%- endfor -%}
     {%- endif -%}
     {%- if indents != 0 and not carryover -%}
-{{ '}'|indent(indents - 2, True) }}{{ '\n' }}
+      {{- '}'|indent(indents - 2, True) }}{{ '\n' }}
     {%- endif -%}
   {%- endif -%}
 {%- endmacro -%}
