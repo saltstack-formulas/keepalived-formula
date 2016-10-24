@@ -18,7 +18,7 @@
 {{ data|string|indent(indents, True) }}{{ '\n' }}
   {%- else -%}
     {%- if indents != 0 and not carryover -%}
-{{- "{\n" -}}
+{{- " {\n" -}}
     {%- endif -%}
     {%- if data is mapping -%}
       {%- for entry in data|dictsort -%}
