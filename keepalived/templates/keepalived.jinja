@@ -13,14 +13,14 @@
 
 {%- macro config_entries(data, indents) -%}
   {%- if data is string or data is number -%}
-{{- " " }}{{ data }}{{ '\n' }}
+{{ data|indent(indents, True) }}{{ '\n' }}
   {%- else -%}
     {%- if indents != 0 -%}
 {{- " {\n" -}}
     {%- endif -%}
     {%- if data is mapping -%}
       {%- for entry in data|dictsort -%}
-{{ entry[0]|indent(indents, True) }}
+{{ entry[0]|indent(indents, True) }}{{ ' ' }}
 {{- config_entries(entry[1], indents + 2) -}}
       {%- endfor -%}
     {%- else -%}
