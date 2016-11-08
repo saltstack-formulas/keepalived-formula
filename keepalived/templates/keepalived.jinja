@@ -5,6 +5,21 @@
 # This file is managed by Salt.
 # Any changes will be overwritten.
 {{ '\n' }}
+
+{#
+Macro Explanation:
+
+This is a recursive macro that takes the type of entry and determines how 
+it is suppose to appear in the configuration file.  Strings and numbers 
+are just written out.  Lists and hashes are placed inside if couple of 
+parenthesis.  It also takes into account the special groupings like 
+vrrp_instance and virtual_server.  Any additional data from a list or a 
+hash is then processed by calling the macro again.
+
+Forced carriage returns and use of jinja’s indent are only there to make 
+the final file more human readable.  They serve no other function.  
+#}
+
 {%- import_yaml 'keepalived/defaults.yaml' as keepalived_defaults -%}
 {%- set keepalived_final_values = salt.pillar.get(
     'keepalived',
