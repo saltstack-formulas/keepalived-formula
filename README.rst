@@ -30,10 +30,7 @@ Install ``keepalived`` from packages.
 ``keepalived.config``
 ------------------
 
-Slowly adding configuration options per the documents, not everything is available
-
-To Do:
- - LVS configuration section
+Configuration options for ``keepalived``.
 
 ``keepalived.service``
 -------------------
