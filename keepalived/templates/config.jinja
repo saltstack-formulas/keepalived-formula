@@ -1,6 +1,7 @@
 {%- set key = 0 -%}
 {%- set value = 1 -%}
-{%- macro keepalived_config(data, recurse=-1) -%}
+{%- set carryovers = ['vrrp_script'] -%}
+{%- macro keepalived_config(data, carryover='', recurse=-1) -%}
   {%- set recurse = recurse + 1 -%}
   {%- if data is none -%}
     {{- '\n' -}}
@@ -12,7 +13,14 @@
     {%- endif -%}
     {%- if data is mapping -%}
       {%- for item in data|dictsort -%}
-        {{- item[key] }} {{ keepalived_config(item[value], recurse) -}}
+        {%- if item[key] in carryovers -%}
+          {{- keepalived_config(item[value], carryover=item[key]) -}}
+        {%- else -%}
+          {%- if carryover -%}
+            {{- carryover }}{{ ' ' -}}
+          {%- endif -%}
+          {{- item[key] }} {{ keepalived_config(item[value], recurse=recurse) -}}
+        {%- endif -%}
       {%- endfor -%}
     {%- else -%}
       {%- for item in data -%}
@@ -20,7 +28,7 @@
       {%- endfor -%}
     {%- endif -%}
     {%- if recurse > 0 -%}
-        {{- '}\n' -}}
+      {{- '}\n' -}}
     {%- endif -%}
   {%- endif -%}
 {%- endmacro -%}

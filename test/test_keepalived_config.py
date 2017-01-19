@@ -59,5 +59,10 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         result = 'fred flintstone\nwilma flintstone\nbarney rubble\nbetty rubble\n'
         self.renderTest(testdata, result)
 
+    def test_carryover(self):
+        testdata = {'vrrp_script': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
+        result = 'vrrp_script gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        self.renderTest(testdata, result)
+
 if __name__ == '__main__':
     unittest.main()
