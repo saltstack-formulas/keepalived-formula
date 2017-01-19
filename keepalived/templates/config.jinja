@@ -1,0 +1,7 @@
+{% macro keepalived_config(data) %}
+{% if data is none %}
+
+{% else %}
+{{ data }}
+{% endif %}
+{% endmacro %}
