@@ -54,5 +54,10 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         result = 'friends {\nbarney rubble\nbetty rubble\nfred flintstone\nwilma flintstone\n}\n'
         self.renderTest(testdata, result)
 
+    def test_ordered_hashes(self):
+        testdata = [{'fred': 'flintstone'}, {'wilma': 'flintstone'}, {'barney': 'rubble'}, {'betty': 'rubble'}]
+        result = 'fred flintstone\nwilma flintstone\nbarney rubble\nbetty rubble\n'
+        self.renderTest(testdata, result)
+
 if __name__ == '__main__':
     unittest.main()

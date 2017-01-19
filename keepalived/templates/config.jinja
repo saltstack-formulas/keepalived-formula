@@ -17,10 +17,14 @@
         {{- '}\n' -}}
     {%- endif -%}
   {%- else -%}
-    {{- '{\n' -}}
+     {%- if recurse > 0 -%}
+      {{- '{\n' -}}
+    {%- endif -%}
     {%- for item in data -%}
       {{- keepalived_config(item) -}}
     {%- endfor -%}
-    {{- '}\n' -}}
+    {%- if recurse > 0 -%}
+        {{- '}\n' -}}
+    {%- endif -%}
   {%- endif -%}
 {%- endmacro -%}
