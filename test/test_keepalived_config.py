@@ -39,5 +39,10 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         result = 'flintstone fred\n'
         self.renderTest(testdata, result)
 
+    def test_key_array_pair(self):
+        testdata = {'flintstone': ['fred', 'wilma', 'pebbles']}
+        result = 'flintstone {\nfred\nwilma\npebbles\n}\n'
+        self.renderTest(testdata, result)
+
 if __name__ == '__main__':
     unittest.main()

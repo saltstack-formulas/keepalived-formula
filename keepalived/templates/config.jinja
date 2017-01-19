@@ -5,7 +5,13 @@
     {%- for key, value in data.iteritems() -%}
 {{ key }} {{ keepalived_config(value) }}
     {%- endfor -%}
-  {%- else -%}
+  {%- elif data is string or data is number -%}
 {{ data }}{{ '\n' }}
+  {%- else -%}
+{{ '{\n' }}
+    {%- for value in data -%}
+{{ keepalived_config(value) }}
+    {%- endfor -%}
+{{ '}\n' }}
   {%- endif -%}
 {%- endmacro -%}
