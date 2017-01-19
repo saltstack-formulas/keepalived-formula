@@ -6,7 +6,7 @@
 # Any changes will be overwritten.
 {{ '\n' }}
 
-{% import 'config.jinja' as config %}
+{% import 'keepalived/templates/config.jinja' as config %}
 {{ config.keepalived_config(keepalived_final_values) }}
 
 {#
