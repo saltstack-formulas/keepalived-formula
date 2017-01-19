@@ -79,5 +79,25 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         result = 'vrrp_script gizmo {\nrunning dumdums\n}\nvrrp_instance dumdums {\nfred flintstone\n}\n'
         self.renderTest(testdata, result)
 
+    def test_carrover_vrrp_sync_group(self):
+        testdata = {'vrrp_sync_group': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
+        result = 'vrrp_sync_group gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        self.renderTest(testdata, result)
+
+    def test_carrover_virtual_server_group(self):
+        testdata = {'virtual_server_group': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
+        result = 'virtual_server_group gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        self.renderTest(testdata, result)
+
+    def test_carrover_virtual_server(self):
+        testdata = {'virtual_server': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
+        result = 'virtual_server gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        self.renderTest(testdata, result)
+
+    def test_carrover_real_server(self):
+        testdata = {'real_server': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
+        result = 'real_server gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        self.renderTest(testdata, result)
+
 if __name__ == '__main__':
     unittest.main()

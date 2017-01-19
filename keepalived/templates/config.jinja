@@ -1,6 +1,7 @@
 {%- set key = 0 -%}
 {%- set value = 1 -%}
-{%- set carryovers = ['vrrp_instance', 'vrrp_script'] -%}
+{%- set carryovers = ['real_server', 'virtual_server', 'virtual_server_group', 
+      'vrrp_instance', 'vrrp_script', 'vrrp_sync_group'] -%}
 {%- macro keepalived_config(data, carryover='', recurse=-1) -%}
   {%- set recurse = recurse + 1 -%}
   {%- if data is none -%}
