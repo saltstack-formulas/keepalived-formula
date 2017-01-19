@@ -6,6 +6,9 @@
 # Any changes will be overwritten.
 {{ '\n' }}
 
+{% import 'config.jinja' as config %}
+{{ config.keepalived_config(keepalived_final_values) }}
+
 {#
 Macro Explanation:
 
@@ -19,7 +22,7 @@ hash is then processed by calling the macro again.
 Forced carriage returns and use of jinja's indent are only there to make 
 the final file more human readable.  They serve no other function.  
 #}
-
+{#
 {%- import_yaml 'keepalived/defaults.yaml' as keepalived_defaults -%}
 {%- set keepalived_final_values = salt.pillar.get(
     'keepalived',
@@ -61,3 +64,4 @@ the final file more human readable.  They serve no other function.
 {%- endmacro -%}
 
 {{ config_entries(keepalived_final_values, 0) }}
+#}
