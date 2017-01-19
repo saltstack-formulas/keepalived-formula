@@ -44,5 +44,10 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         result = 'flintstone {\nfred\nwilma\npebbles\n}\n'
         self.renderTest(testdata, result)
 
+    def test_key_hash_pair(self):
+        testdata = {'friends': {'rubble': 'barney'}}
+        result = 'friends {\nrubble barney\n}\n'
+        self.renderTest(testdata, result)
+
 if __name__ == '__main__':
     unittest.main()

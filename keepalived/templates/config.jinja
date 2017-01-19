@@ -1,17 +1,24 @@
-{%- macro keepalived_config(data) -%}
+{%- macro keepalived_config(data, recurse=-1) -%}
+  {%- set recurse = recurse + 1 -%}
   {%- if data is none -%}
-{{ '\n' }}
-  {%- elif data is mapping -%}
-    {%- for key, value in data.iteritems() -%}
-{{ key }} {{ keepalived_config(value) }}
-    {%- endfor -%}
+    {{- '\n' -}}
   {%- elif data is string or data is number -%}
-{{ data }}{{ '\n' }}
-  {%- else -%}
-{{ '{\n' }}
-    {%- for value in data -%}
-{{ keepalived_config(value) }}
+    {{- data }}{{ '\n' -}}
+  {%- elif data is mapping -%}
+    {%- if recurse > 0 -%}
+      {{- '{\n' -}}
+    {%- endif -%}
+    {%- for key, value in data.iteritems() -%}
+      {{- key }} {{ keepalived_config(value, recurse) -}}
     {%- endfor -%}
-{{ '}\n' }}
+    {%- if recurse > 0 -%}
+        {{- '}\n' -}}
+    {%- endif -%}
+  {%- else -%}
+    {{- '{\n' -}}
+    {%- for value in data -%}
+      {{- keepalived_config(value) -}}
+    {%- endfor -%}
+    {{- '}\n' -}}
   {%- endif -%}
 {%- endmacro -%}
