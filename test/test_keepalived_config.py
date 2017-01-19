@@ -14,28 +14,30 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         self.t_conf = Environment(loader=FileSystemLoader(self.t_dir), 
                 trim_blocks=True)
 
-    def _render(self, data):
+    def renderTest(self, data, result):
         holder = self.t_conf.get_template('test_config.jinja').render(testdata=data)
-        print(repr(holder))
-        return holder
+        output = repr(holder) + ' did not equal ' + repr(result)
+        self.assertEqual(holder, result, output)
 
     def test_string(self):
         testdata = 'stuff'
         result = 'stuff\n'
-        self.assertEqual(self._render(testdata), result,
-                'A string should be returned with a line feed.')
+        self.renderTest(testdata, result)
 
     def test_number(self):
         testdata = 3
         result = '3\n'
-        self.assertEqual(self._render(testdata), result,
-                'A number should be returned with a line feed.')
+        self.renderTest(testdata, result)
 
     def test_null(self):
         testdata = None
         result = '\n'
-        self.assertEqual(self._render(testdata), result,
-                'A null should just return a line feed.')
+        self.renderTest(testdata, result)
+
+    def test_key_value_pair(self):
+        testdata = {'flintstone': 'fred'}
+        result = 'flintstone fred\n'
+        self.renderTest(testdata, result)
 
 if __name__ == '__main__':
     unittest.main()
