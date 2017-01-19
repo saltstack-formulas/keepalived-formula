@@ -12,7 +12,7 @@ class TestKeepalivedConfiguration(unittest.TestCase):
             'keepalived',
             'templates'))
         self.t_conf = Environment(loader=FileSystemLoader(self.t_dir), 
-                trim_blocks=True)
+            trim_blocks=True)
 
     def renderTest(self, data, result):
         holder = self.t_conf.get_template('test_config.jinja').render(testdata=data)
@@ -47,6 +47,11 @@ class TestKeepalivedConfiguration(unittest.TestCase):
     def test_key_hash_pair(self):
         testdata = {'friends': {'rubble': 'barney'}}
         result = 'friends {\nrubble barney\n}\n'
+        self.renderTest(testdata, result)
+
+    def test_key_ordered_hashs(self):
+        testdata = {'friends': {'fred': 'flintstone', 'barney': 'rubble', 'wilma': 'flintstone', 'betty': 'rubble'}}
+        result = 'friends {\nbarney rubble\nbetty rubble\nfred flintstone\nwilma flintstone\n}\n'
         self.renderTest(testdata, result)
 
 if __name__ == '__main__':

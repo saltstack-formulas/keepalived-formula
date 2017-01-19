@@ -1,3 +1,5 @@
+{%- set key = 0 -%}
+{%- set value = 1 -%}
 {%- macro keepalived_config(data, recurse=-1) -%}
   {%- set recurse = recurse + 1 -%}
   {%- if data is none -%}
@@ -8,16 +10,16 @@
     {%- if recurse > 0 -%}
       {{- '{\n' -}}
     {%- endif -%}
-    {%- for key, value in data.iteritems() -%}
-      {{- key }} {{ keepalived_config(value, recurse) -}}
+    {%- for item in data|dictsort -%}
+      {{- item[key] }} {{ keepalived_config(item[value], recurse) -}}
     {%- endfor -%}
     {%- if recurse > 0 -%}
         {{- '}\n' -}}
     {%- endif -%}
   {%- else -%}
     {{- '{\n' -}}
-    {%- for value in data -%}
-      {{- keepalived_config(value) -}}
+    {%- for item in data -%}
+      {{- keepalived_config(item) -}}
     {%- endfor -%}
     {{- '}\n' -}}
   {%- endif -%}
