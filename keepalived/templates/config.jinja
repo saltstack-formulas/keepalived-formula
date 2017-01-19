@@ -6,23 +6,19 @@
     {{- '\n' -}}
   {%- elif data is string or data is number -%}
     {{- data }}{{ '\n' -}}
-  {%- elif data is mapping -%}
-    {%- if recurse > 0 -%}
-      {{- '{\n' -}}
-    {%- endif -%}
-    {%- for item in data|dictsort -%}
-      {{- item[key] }} {{ keepalived_config(item[value], recurse) -}}
-    {%- endfor -%}
-    {%- if recurse > 0 -%}
-        {{- '}\n' -}}
-    {%- endif -%}
   {%- else -%}
-     {%- if recurse > 0 -%}
+    {%- if recurse > 0 -%}
       {{- '{\n' -}}
     {%- endif -%}
-    {%- for item in data -%}
-      {{- keepalived_config(item) -}}
-    {%- endfor -%}
+    {%- if data is mapping -%}
+      {%- for item in data|dictsort -%}
+        {{- item[key] }} {{ keepalived_config(item[value], recurse) -}}
+      {%- endfor -%}
+    {%- else -%}
+      {%- for item in data -%}
+        {{- keepalived_config(item) -}}
+      {%- endfor -%}
+    {%- endif -%}
     {%- if recurse > 0 -%}
         {{- '}\n' -}}
     {%- endif -%}
