@@ -14,6 +14,7 @@
       {%- set indent = indent + 2 -%}
     {%- endif -%}
     {%- if data is mapping -%}
+      {%- set indentHolder = indent -%}
       {%- for item in data|dictsort -%}
         {%- if item[key] in carryovers -%}
           {{- keepalived_config(item[value], carryover=item[key]) -}}
@@ -24,7 +25,7 @@
           {%- if item[value] is string or item[value] is not iterable -%}
             {%- set indent = 0 -%}
           {%- endif -%}
-          {{- item[key] }} {{ keepalived_config(item[value], recurse=recurse, indent=indent) -}}
+          {{- item[key]|indent(indentHolder, True) }} {{ keepalived_config(item[value], recurse=recurse, indent=indent) -}}
         {%- endif -%}
       {%- endfor -%}
     {%- else -%}

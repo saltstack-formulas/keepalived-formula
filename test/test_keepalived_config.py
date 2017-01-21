@@ -46,12 +46,12 @@ class TestKeepalivedConfiguration(unittest.TestCase):
 
     def test_key_hash_pair(self):
         testdata = {'friends': {'rubble': 'barney'}}
-        result = 'friends {\nrubble barney\n}\n'
+        result = 'friends {\n  rubble barney\n}\n'
         self.renderTest(testdata, result)
 
     def test_key_ordered_hashs(self):
         testdata = {'friends': {'fred': 'flintstone', 'barney': 'rubble', 'wilma': 'flintstone', 'betty': 'rubble'}}
-        result = 'friends {\nbarney rubble\nbetty rubble\nfred flintstone\nwilma flintstone\n}\n'
+        result = 'friends {\n  barney rubble\n  betty rubble\n  fred flintstone\n  wilma flintstone\n}\n'
         self.renderTest(testdata, result)
 
     def test_ordered_hashes(self):
@@ -61,42 +61,42 @@ class TestKeepalivedConfiguration(unittest.TestCase):
 
     def test_carryover(self):
         testdata = {'vrrp_script': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
-        result = 'vrrp_script gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        result = 'vrrp_script gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
     def test_carryover_contains_arry(self):
         testdata = {'vrrp_script': {'gizmo': [{'fred': 'flintstone'}, {'barney': 'rubble'}]}}
-        result = 'vrrp_script gizmo {\nfred flintstone\nbarney rubble\n}\n'
+        result = 'vrrp_script gizmo {\n  fred flintstone\n  barney rubble\n}\n'
         self.renderTest(testdata, result)
 
     def test_carrover_vrrp_instance(self):
         testdata = {'vrrp_instance': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
-        result = 'vrrp_instance gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        result = 'vrrp_instance gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
     def test_carryovers_in_an_array(self):
         testdata = [{'vrrp_script': {'gizmo': {'running': 'dumdums'}}}, {'vrrp_instance': {'dumdums': {'fred': 'flintstone'}}}]
-        result = 'vrrp_script gizmo {\nrunning dumdums\n}\nvrrp_instance dumdums {\nfred flintstone\n}\n'
+        result = 'vrrp_script gizmo {\n  running dumdums\n}\nvrrp_instance dumdums {\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
     def test_carrover_vrrp_sync_group(self):
         testdata = {'vrrp_sync_group': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
-        result = 'vrrp_sync_group gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        result = 'vrrp_sync_group gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
     def test_carrover_virtual_server_group(self):
         testdata = {'virtual_server_group': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
-        result = 'virtual_server_group gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        result = 'virtual_server_group gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
     def test_carrover_virtual_server(self):
         testdata = {'virtual_server': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
-        result = 'virtual_server gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        result = 'virtual_server gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
     def test_carrover_real_server(self):
         testdata = {'real_server': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
-        result = 'real_server gizmo {\nbarney rubble\nfred flintstone\n}\n'
+        result = 'real_server gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
 if __name__ == '__main__':
