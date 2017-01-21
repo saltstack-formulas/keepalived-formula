@@ -69,7 +69,7 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         result = 'vrrp_script gizmo {\n  fred flintstone\n  barney rubble\n}\n'
         self.renderTest(testdata, result)
 
-    def test_carrover_vrrp_instance(self):
+    def test_carryover_vrrp_instance(self):
         testdata = {'vrrp_instance': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
         result = 'vrrp_instance gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
@@ -79,24 +79,29 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         result = 'vrrp_script gizmo {\n  running dumdums\n}\nvrrp_instance dumdums {\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
-    def test_carrover_vrrp_sync_group(self):
+    def test_carryover_vrrp_sync_group(self):
         testdata = {'vrrp_sync_group': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
         result = 'vrrp_sync_group gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
-    def test_carrover_virtual_server_group(self):
+    def test_carryover_virtual_server_group(self):
         testdata = {'virtual_server_group': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
         result = 'virtual_server_group gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
-    def test_carrover_virtual_server(self):
+    def test_carryover_virtual_server(self):
         testdata = {'virtual_server': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
         result = 'virtual_server gizmo {\n  barney rubble\n  fred flintstone\n}\n'
         self.renderTest(testdata, result)
 
-    def test_carrover_real_server(self):
+    def test_carryover_real_server(self):
         testdata = {'real_server': {'gizmo': {'fred': 'flintstone', 'barney': 'rubble'}}}
         result = 'real_server gizmo {\n  barney rubble\n  fred flintstone\n}\n'
+        self.renderTest(testdata, result)
+
+    def test_carryover_within_carryover(self):
+        testdata = {'virtual_server': {'gizmo': {'real_server': {'dumdums': {'fred': 'flintstone', 'barney': 'rubble'}}}}}
+        result = 'virtual_server gizmo {\n  real_server dumdums {\n    barney rubble\n    fred flintstone\n  }\n}\n'
         self.renderTest(testdata, result)
 
 if __name__ == '__main__':
