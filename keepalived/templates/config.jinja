@@ -14,15 +14,14 @@
       {%- set indent = indent + 2 -%}
     {%- endif -%}
     {%- if data is mapping -%}
-      {%- set indentHolder = indent -%}
       {%- for item in data|dictsort -%}
         {%- if item[key] in carryovers -%}
           {{- keepalived_config(item[value], carryover=item[key], indent=indent) -}}
         {%- else -%}
-          {%- set carryIndent = indentHolder -%}
-          {%- set forwardIndent = indentHolder -%}
+          {%- set carryIndent = indent -%}
+          {%- set forwardIndent = indent -%}
           {%- if carryover -%}
-            {{- carryover|indent(indentHolder, True) }}{{ ' ' -}}
+            {{- carryover|indent(indent, True) }}{{ ' ' -}}
             {%- set carryIndent = 0 -%}
           {%- endif -%}
           {%- if item[value] is string or item[value] is not iterable -%}
