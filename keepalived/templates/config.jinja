@@ -20,14 +20,15 @@
           {{- keepalived_config(item[value], carryover=item[key], indent=indent) -}}
         {%- else -%}
           {%- set carryIndent = indentHolder -%}
+          {%- set forwardIndent = indentHolder -%}
           {%- if carryover -%}
             {{- carryover|indent(indentHolder, True) }}{{ ' ' -}}
             {%- set carryIndent = 0 -%}
           {%- endif -%}
           {%- if item[value] is string or item[value] is not iterable -%}
-            {%- set indent = 0 -%}
+            {%- set forwardIndent = 0 -%}
           {%- endif -%}
-          {{- item[key]|indent(carryIndent, True) }} {{ keepalived_config(item[value], recurse=recurse, indent=indent) -}}
+          {{- item[key]|indent(carryIndent, True) }} {{ keepalived_config(item[value], recurse=recurse, indent=forwardIndent) -}}
         {%- endif -%}
       {%- endfor -%}
     {%- else -%}

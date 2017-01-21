@@ -104,5 +104,15 @@ class TestKeepalivedConfiguration(unittest.TestCase):
         result = 'virtual_server gizmo {\n  real_server dumdums {\n    barney rubble\n    fred flintstone\n  }\n}\n'
         self.renderTest(testdata, result)
 
+    def test_indent_nested_hashes(self):
+        testdata = {'flintstone': {'fred': {'role': {'family': 'father'}}}}
+        result = 'flintstone {\n  fred {\n    role {\n      family father\n    }\n  }\n}\n'
+        self.renderTest(testdata, result)
+
+    def test_indent_carryover_with_nested_hashes(self):
+        testdata = {'real_server': {'gizmo': {'another': 'day', 'dumdums': {'fred': 'flintstone', 'barney': 'rubble'}}}}
+        result = 'real_server gizmo {\n  another day\n  dumdums {\n    barney rubble\n    fred flintstone\n  }\n}\n'
+        self.renderTest(testdata, result)
+
 if __name__ == '__main__':
     unittest.main()
