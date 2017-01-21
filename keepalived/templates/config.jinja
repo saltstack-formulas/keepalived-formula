@@ -2,15 +2,16 @@
 {%- set value = 1 -%}
 {%- set carryovers = ['real_server', 'virtual_server', 'virtual_server_group', 
       'vrrp_instance', 'vrrp_script', 'vrrp_sync_group'] -%}
-{%- macro keepalived_config(data, carryover='', recurse=-1) -%}
+{%- macro keepalived_config(data, carryover='', recurse=-1, indent=0) -%}
   {%- set recurse = recurse + 1 -%}
   {%- if data is none -%}
     {{- '\n' -}}
   {%- elif data is string or data is number -%}
-    {{- data }}{{ '\n' -}}
+    {{- data|string|indent(indent, True) }}{{ '\n' -}}
   {%- else -%}
     {%- if recurse > 0 -%}
       {{- '{\n' -}}
+      {%- set indent = indent + 2 -%}
     {%- endif -%}
     {%- if data is mapping -%}
       {%- for item in data|dictsort -%}
@@ -20,12 +21,15 @@
           {%- if carryover -%}
             {{- carryover }}{{ ' ' -}}
           {%- endif -%}
-          {{- item[key] }} {{ keepalived_config(item[value], recurse=recurse) -}}
+          {%- if item[value] is string or item[value] is not iterable -%}
+            {%- set indent = 0 -%}
+          {%- endif -%}
+          {{- item[key] }} {{ keepalived_config(item[value], recurse=recurse, indent=indent) -}}
         {%- endif -%}
       {%- endfor -%}
     {%- else -%}
       {%- for item in data -%}
-        {{- keepalived_config(item) -}}
+        {{- keepalived_config(item, indent=indent) -}}
       {%- endfor -%}
     {%- endif -%}
     {%- if recurse > 0 -%}

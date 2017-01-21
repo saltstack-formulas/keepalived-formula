@@ -41,7 +41,7 @@ class TestKeepalivedConfiguration(unittest.TestCase):
 
     def test_key_array_pair(self):
         testdata = {'flintstone': ['fred', 'wilma', 'pebbles']}
-        result = 'flintstone {\nfred\nwilma\npebbles\n}\n'
+        result = 'flintstone {\n  fred\n  wilma\n  pebbles\n}\n'
         self.renderTest(testdata, result)
 
     def test_key_hash_pair(self):
