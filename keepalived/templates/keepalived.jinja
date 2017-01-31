@@ -6,58 +6,10 @@
 # Any changes will be overwritten.
 {{ '\n' }}
 
-{#
-Macro Explanation:
-
-This is a recursive macro that takes the type of entry and determines how 
-it is suppose to appear in the configuration file.  Strings and numbers 
-are just written out.  Lists and hashes are placed inside if couple of 
-parenthesis.  It also takes into account the special groupings like 
-vrrp_instance and virtual_server.  Any additional data from a list or a 
-hash is then processed by calling the macro again.
-
-Forced carriage returns and use of jinja's indent are only there to make 
-the final file more human readable.  They serve no other function.  
-#}
-
+{%- import 'keepalived/templates/config.jinja' as config -%}
 {%- import_yaml 'keepalived/defaults.yaml' as keepalived_defaults -%}
 {%- set keepalived_final_values = salt.pillar.get(
     'keepalived',
     default=keepalived_defaults,
     merge=True) -%}
-
-{%- set groupings = ['vrrp_script', 'vrrp_sync_group', 'vrrp_instance', 
-    'virtual_server_group', 'virtual_server', 'real_server'] -%}
-{%- macro config_entries(data, indents, carryover='') -%}
-  {%- if data is string or data is number -%}
-    {{- data|string|indent(indents, True) }}{{ '\n' -}}
-  {%- elif data is none -%}
-    {{- '\n' -}}
-  {%- else -%}
-    {%- if indents != 0 and not carryover -%}
-      {{- " {\n" -}}
-    {%- endif -%}
-    {%- if data is mapping -%}
-      {%- for entry in data|dictsort -%}
-        {%- if entry[0] in groupings -%}
-          {{- config_entries(entry[1], indents, carryover=entry[0]) -}}
-        {%- else -%}
-          {%- if carryover -%}
-            {{- carryover|indent(indents, True) }}{{ '  ' }}
-          {%- endif -%}
-            {{- entry[0]|indent(indents, True) }}
-            {{- config_entries(entry[1], indents + 2) -}}
-        {%- endif -%}
-      {%- endfor -%}
-    {%- else -%}
-      {%- for entry in data -%}
-        {{- config_entries(entry, indents) -}}
-      {%- endfor -%}
-    {%- endif -%}
-    {%- if indents != 0 and not carryover -%}
-      {{- '}'|indent(indents - 2, True) }}{{ '\n' }}
-    {%- endif -%}
-  {%- endif -%}
-{%- endmacro -%}
-
-{{ config_entries(keepalived_final_values, 0) }}
+{{ config.keepalived_config(keepalived_final_values) }}

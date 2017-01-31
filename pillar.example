@@ -1,6 +1,15 @@
 #
 # Example pillar configuration
 #
+# Boolean entries must be placed stored as strings, otherwise it will show
+# up as 1 or 0 in the config file.
+#
+# Anything that needs to be in quotes in the configuration file needs to 
+# be escaped in the yaml file.  Otherwise the quotes will not appear in 
+# the config file.
+#
+# When order is important, put the entries into a yaml array or list.  This 
+# could be used to place vrrp_script before vrrp_instance entries.  
 
 # The following would generate the example file in RedHat based systems.
 
