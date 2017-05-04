@@ -23,7 +23,7 @@ keepalived:
     smtp_server: 192.168.200.1
     smtp_connect_timeout: 30
     router_id: LVS_DEVEL
-  vrrp_instances:
+  vrrp_instance:
     VI_1:
       state: MASTER
       interface: eth0
