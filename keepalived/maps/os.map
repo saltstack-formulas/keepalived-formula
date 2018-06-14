@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+#debian (overrides defaults, is taken when os_family grain is Debian)
+Debian:
+  sysconfdir: /etc/default
+
+#redhat (overrides defaults, is taken when os_family grain is RedHat)
+RedHat:
+  sysconfdir: /etc/sysconfig

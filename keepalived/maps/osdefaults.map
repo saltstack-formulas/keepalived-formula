@@ -1,0 +1,6 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+#overrides defaults, used if OS specific settings for current OS could not be found in os.map
+osdefaults:
+  sysconfdir: /etc/sysconfig

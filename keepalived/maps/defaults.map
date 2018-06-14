@@ -1,0 +1,18 @@
+---
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+
+#defaults settings - OS independent, will be merged with and overridden by OS specific settings
+defaults:
+  pkgs:
+    - keepalived
+  service:
+    name: keepalived
+    state: running
+    enable: True
+  conf:
+    global_defs:
+      smtp_server: localhost
+
+  conffile: '/etc/keepalived/keepalived.conf'

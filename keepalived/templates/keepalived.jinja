@@ -7,9 +7,5 @@
 {{ '\n' }}
 
 {%- import 'keepalived/templates/config.jinja' as config -%}
-{%- import_yaml 'keepalived/defaults.yaml' as keepalived_defaults -%}
-{%- set keepalived_final_values = salt.pillar.get(
-    'keepalived',
-    default=keepalived_defaults,
-    merge=True) -%}
-{{ config.keepalived_config(keepalived_final_values) }}
+{%- from "keepalived/map.jinja" import keepalived with context -%}
+{{ config.keepalived_config(keepalived.conf) }}

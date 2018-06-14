@@ -6,3 +6,17 @@ include:
   - keepalived.install
   - keepalived.service
   - keepalived.config
+
+
+extend:
+  keepalived.config:
+    file:
+      - require:
+        - pkg: keepalived.install
+  keepalived.service:
+    service:
+      - watch:
+        - file: keepalived.config
+      - require:
+        - pkg: keepalived.install
+

@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+
+{% import_yaml "keepalived/maps/defaults.map" as keepalived_defaults %}
+{% import_yaml "keepalived/maps/osdefaults.map" as keepalived_osdefaults %}
+{% import_yaml "keepalived/maps/os.map" as keepalived_os %}
+
+{% set keepalived_os_family = {} %}
+
+{% do keepalived_os_family.update(keepalived_defaults) %}
+{% do keepalived_os_family.update(keepalived_osdefaults) %}
+{% do keepalived_os_family.update(keepalived_os) %}
+
+{%- set keepalived_default_plus_pillar_lookup = salt['grains.filter_by'](keepalived_os_family, grain='os_family', merge=salt['pillar.get']('keepalived:lookup'), default='osdefaults', base='defaults') %}
+{%- set keepalived = salt['pillar.get']('keepalived', default=keepalived_default_plus_pillar_lookup, merge=True) %}
