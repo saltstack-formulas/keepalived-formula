@@ -1,5 +1,11 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
 ---
-# keepalived/defaults.yaml
-
-global_defs:
-  smtp_server: localhost
+keepalived:
+  package: keepalived
+  config_file: /etc/keepalived/keepalived.conf
+  service:
+    name: keepalived
+  config:
+    global_defs:
+      smtp_server: localhost
