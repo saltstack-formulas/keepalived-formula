@@ -1,8 +1,11 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
 {%- set key = 0 -%}
 {%- set value = 1 -%}
-{%- set carryovers = ['real_server', 'virtual_server', 'virtual_server_group', 
-      'vrrp_instance', 'vrrp_script', 'vrrp_sync_group'] -%}
-{%- macro keepalived_config(data, carryover='', recurse=-1, indent=0) -%}
+{%- set carryovers = ['real_server', 'virtual_server', 'virtual_server_group', 'vrrp_instance', 'vrrp_script', 'vrrp_sync_group'] -%}
+
+{%- macro print_config(data, carryover='', recurse=-1, indent=0) -%}
   {%- set recurse = recurse + 1 -%}
   {%- if data is none -%}
     {{- '\n' -}}
@@ -16,7 +19,7 @@
     {%- if data is mapping -%}
       {%- for item in data|dictsort -%}
         {%- if item[key] in carryovers -%}
-          {{- keepalived_config(item[value], carryover=item[key], indent=indent) -}}
+          {{- print_config(item[value], carryover=item[key], indent=indent) -}}
         {%- else -%}
           {%- set carryIndent = indent -%}
           {%- set forwardIndent = indent -%}
@@ -27,12 +30,12 @@
           {%- if item[value] is string or item[value] is not iterable -%}
             {%- set forwardIndent = 0 -%}
           {%- endif -%}
-          {{- item[key]|indent(carryIndent, True) }} {{ keepalived_config(item[value], recurse=recurse, indent=forwardIndent) -}}
+          {{- item[key]|indent(carryIndent, True) }} {{ print_config(item[value], recurse=recurse, indent=forwardIndent) -}}
         {%- endif -%}
       {%- endfor -%}
     {%- else -%}
       {%- for item in data -%}
-        {{- keepalived_config(item, indent=indent) -}}
+        {{- print_config(item, indent=indent) -}}
       {%- endfor -%}
     {%- endif -%}
     {%- if recurse > 0 -%}

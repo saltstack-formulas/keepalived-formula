@@ -1,0 +1,11 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+---
+Debian-8: {}
+Debian-9: {}
+Ubuntu-16.04: {}
+Ubuntu-18.04: {}
+Fedora-28: {}
+Fedora-29: {}
+CentOS-7: {}
+openSUSE-4.23: {}
