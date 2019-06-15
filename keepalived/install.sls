@@ -5,4 +5,4 @@
 
 keepalived.install:
   pkg.installed:
-    - pkgs: {{ keepalived.pkgs }}
+    - pkgs: {{ keepalived.pkgs | tojson }}
