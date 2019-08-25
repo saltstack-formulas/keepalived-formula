@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.4.1 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.0...v0.4.1>`_ (2019-08-25)
+------------------------------------------------------------------------------------------------------------
+
+Documentation
+^^^^^^^^^^^^^
+
+
+* **readme:** add testing section (\ `bbc0f7b <https://github.com/saltstack-formulas/keepalived-formula/commit/bbc0f7b>`_\ )
+
 `0.4.0 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.3.0...v0.4.0>`_ (2019-08-10)
 ------------------------------------------------------------------------------------------------------------
 
