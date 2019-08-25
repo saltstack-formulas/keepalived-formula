@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.1...v0.4.2) (2019-08-25)
+
+
+### Documentation
+
+* **readme:** fix indentation ([52c1359](https://github.com/saltstack-formulas/keepalived-formula/commit/52c1359))
+
 ## [0.4.1](https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.0...v0.4.1) (2019-08-25)
 
 

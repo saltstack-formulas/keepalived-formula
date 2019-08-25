@@ -22,6 +22,9 @@ This list is sorted by the number of commits per contributor in *descending* ord
    * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars2.githubusercontent.com/u/10231489?v=4' width='36' height='36' alt='@myii'>`
      - `@myii <https://github.com/myii>`_
      - 8
+   * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars3.githubusercontent.com/u/3433835?v=4' width='36' height='36' alt='@n-rodriguez'>`
+     - `@n-rodriguez <https://github.com/n-rodriguez>`_
+     - 5
    * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars1.githubusercontent.com/u/4488681?v=4' width='36' height='36' alt='@frots'>`
      - `@frots <https://github.com/frots>`_
      - 4
@@ -42,9 +45,6 @@ This list is sorted by the number of commits per contributor in *descending* ord
      - 1
    * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars3.githubusercontent.com/u/14904864?v=4' width='36' height='36' alt='@mpawlack'>`
      - `@mpawlack <https://github.com/mpawlack>`_
-     - 1
-   * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars3.githubusercontent.com/u/3433835?v=4' width='36' height='36' alt='@n-rodriguez'>`
-     - `@n-rodriguez <https://github.com/n-rodriguez>`_
      - 1
    * - :raw-html-m2r:`<img class='float-left rounded-1' src='https://avatars3.githubusercontent.com/u/48949?v=4' width='36' height='36' alt='@tampakrap'>`
      - `@tampakrap <https://github.com/tampakrap>`_
