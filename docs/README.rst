@@ -40,25 +40,25 @@ Contributing to this repo
 Please see :ref:`How to contribute <CONTRIBUTING>` for more details.
 
 Available states
-================
+----------------
 
 .. contents::
     :local:
 
 ``keepalived``
---------------
+^^^^^^^^^^^^^^
 Installs and configures the keepalived package.
 
 ``keepalived.package``
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 Installs the keepalived package.
 
 ``keepalived.config``
----------------------
+^^^^^^^^^^^^^^^^^^^^^
 This state manages the file ``keepalived.conf`` under ``/etc/keepalived`` (template found in "keepalived/files"). The configuration is populated by values in "keepalived/map.jinja" based on the package's default values (and RedHat, Debian, Suse and Arch family distribution specific values), which can then be overridden by values of the same name in pillar.
 
 ``keepalived.service``
-----------------------
+^^^^^^^^^^^^^^^^^^^^^^
 This state ensures that keepalived service is running.
 
 Testing
