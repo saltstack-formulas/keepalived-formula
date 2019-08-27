@@ -2,6 +2,15 @@
 Changelog
 =========
 
+`0.4.3 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.2...v0.4.3>`_ (2019-08-27)
+------------------------------------------------------------------------------------------------------------
+
+Code Refactoring
+^^^^^^^^^^^^^^^^
+
+
+* **pillar:** sync map.jinja with template-formula (\ `96fe445 <https://github.com/saltstack-formulas/keepalived-formula/commit/96fe445>`_\ )
+
 `0.4.2 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.1...v0.4.2>`_ (2019-08-25)
 ------------------------------------------------------------------------------------------------------------
 
