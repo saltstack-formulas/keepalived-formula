@@ -2,6 +2,30 @@
 Changelog
 =========
 
+`0.4.4 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.3...v0.4.4>`_ (2019-10-12)
+------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **rubocop:** add fixes using ``rubocop --safe-auto-correct`` (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/ce52e09>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** change ``log_level`` to ``debug`` instead of ``info`` (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/676b623>`_\ )
+* **kitchen:** install required packages to bootstrapped ``opensuse`` [skip ci] (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/eaaaf9e>`_\ )
+* **kitchen:** use bootstrapped ``opensuse`` images until ``2019.2.2`` [skip ci] (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/3419a72>`_\ )
+* **kitchen+travis:** replace EOL pre-salted images (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/2de0ca2>`_\ )
+* **platform:** add ``arch-base-latest`` (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/39f1205>`_\ )
+* merge travis matrix, add ``salt-lint`` & ``rubocop`` to ``lint`` job (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/ff62d0b>`_\ )
+* merge travis matrix, add ``salt-lint`` & ``rubocop`` to ``lint`` job (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/0645ea6>`_\ )
+* use ``dist: bionic`` & apply ``opensuse-leap-15`` SCP error workaround (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/2cb407f>`_\ )
+* **travis:** merge ``rubocop`` linter into main ``lint`` job (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/49892c0>`_\ )
+* **yamllint:** add rule ``empty-values`` & use new ``yaml-files`` setting (\ ` <https://github.com/saltstack-formulas/keepalived-formula/commit/0b782d6>`_\ )
+
 `0.4.3 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.2...v0.4.3>`_ (2019-08-27)
 ------------------------------------------------------------------------------------------------------------
 
