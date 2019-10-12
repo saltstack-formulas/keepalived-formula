@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 control 'Keepalived package' do
   title 'should be installed'
 
