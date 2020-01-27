@@ -1,5 +1,39 @@
 # Changelog
 
+## [0.4.5](https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.4...v0.4.5) (2020-01-27)
+
+
+### Bug Fixes
+
+* **keepalived.conf.tmpl.jinja:** fix `has no attribute` error ([4391459](https://github.com/saltstack-formulas/keepalived-formula/commit/4391459df8cabb4818e54f54b92d5ca067671956)), closes [/freenode.logbot.info/saltstack-formulas/20200122#c3126298-c3126299](https://github.com//freenode.logbot.info/saltstack-formulas/20200122/issues/c3126298-c3126299)
+* **release.config.js:** use full commit hash in commit link [skip ci] ([e9f7b11](https://github.com/saltstack-formulas/keepalived-formula/commit/e9f7b11db30e370d37059e599f35130e1137dd0a))
+
+
+### Continuous Integration
+
+* **gemfile:** restrict `train` gem version until upstream fix [skip ci] ([a1a51d5](https://github.com/saltstack-formulas/keepalived-formula/commit/a1a51d58421ed65f56703a5b011178fc5122e26f))
+* **kitchen:** use `debian-10-master-py3` instead of `develop` [skip ci] ([0bb4271](https://github.com/saltstack-formulas/keepalived-formula/commit/0bb4271c89b2a64ae536e08047eb835c121dac90))
+* **kitchen:** use `develop` image until `master` is ready (`amazonlinux`) [skip ci] ([2758e8e](https://github.com/saltstack-formulas/keepalived-formula/commit/2758e8ebf360be54682ee09b59a5f2767f721bbd))
+* **kitchen+travis:** upgrade matrix after `2019.2.2` release [skip ci] ([e638158](https://github.com/saltstack-formulas/keepalived-formula/commit/e6381581fad1568e7f21f34776ca46a6cd137d36))
+* **travis:** apply changes from build config validation [skip ci] ([4f492da](https://github.com/saltstack-formulas/keepalived-formula/commit/4f492dafff1da17a180e63181ab5c509e65cb189))
+* **travis:** opt-in to `dpl v2` to complete build config validation [skip ci] ([cc7542a](https://github.com/saltstack-formulas/keepalived-formula/commit/cc7542a93f03dc8bedb5bb7ac54c2bf17d30cd02))
+* **travis:** quote pathspecs used with `git ls-files` [skip ci] ([5e42eaa](https://github.com/saltstack-formulas/keepalived-formula/commit/5e42eaaa56f45a1b4c2f60fa9087f7006c865bcc))
+* **travis:** run `shellcheck` during lint job [skip ci] ([47b3bce](https://github.com/saltstack-formulas/keepalived-formula/commit/47b3bce96b50f5059db0c7011497ca0a0406bcf8))
+* **travis:** update `salt-lint` config for `v0.0.10` [skip ci] ([4d40216](https://github.com/saltstack-formulas/keepalived-formula/commit/4d4021675480cb44e6084a5b91ec5c9963ce831f))
+* **travis:** use `major.minor` for `semantic-release` version [skip ci] ([3e9bc91](https://github.com/saltstack-formulas/keepalived-formula/commit/3e9bc91558ade2614f8de256092bfad8179feb4e))
+* **travis:** use build config validation (beta) [skip ci] ([2d42d93](https://github.com/saltstack-formulas/keepalived-formula/commit/2d42d932463df75931a721ab9c7f3dbe6a584767))
+
+
+### Documentation
+
+* **contributing:** remove to use org-level file instead [skip ci] ([603176e](https://github.com/saltstack-formulas/keepalived-formula/commit/603176eec75d8602944904e2c389d483d8d34a52))
+* **readme:** update link to `CONTRIBUTING` [skip ci] ([01df0d0](https://github.com/saltstack-formulas/keepalived-formula/commit/01df0d0097457cc28fbde9fd5a542848c37804f2))
+
+
+### Performance Improvements
+
+* **travis:** improve `salt-lint` invocation [skip ci] ([45a87c6](https://github.com/saltstack-formulas/keepalived-formula/commit/45a87c67fd28e8f78a887a0a7453dd7d7c9b43d7))
+
 ## [0.4.4](https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.3...v0.4.4) (2019-10-12)
 
 
