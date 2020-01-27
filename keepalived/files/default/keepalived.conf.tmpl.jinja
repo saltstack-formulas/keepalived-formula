@@ -6,5 +6,5 @@
 {%- from "keepalived/macro.jinja" import print_config %}
 {%- set sections = ['global_defs', 'vrrp_script', 'vrrp_instance', 'virtual_server'] %}
 {%- for section in sections %}
-{{ print_config({ section: config[section] }) }}
+{{ print_config({ section: config[section]|d({}) }) }}
 {%- endfor %}
