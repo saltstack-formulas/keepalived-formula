@@ -15,3 +15,10 @@ keepalived-service-running-service-running:
     - enable: True
     - require:
       - sls: {{ sls_config_file }}
+
+keepalived-service-restart:
+  module.wait:
+    - name: service.restart
+    - m_name: keepalived
+    - watch:
+      - keepalived-config-file-file-managed
