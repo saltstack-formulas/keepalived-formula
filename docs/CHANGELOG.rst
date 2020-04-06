@@ -2,6 +2,27 @@
 Changelog
 =========
 
+`0.5.0 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.5...v0.5.0>`_ (2020-04-06)
+------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **libtofs:** “files_switch” mess up the variable exported by “map.jinja” [skip ci] (\ `e01cd28 <https://github.com/saltstack-formulas/keepalived-formula/commit/e01cd28115d1e0c282dd6d8f68cdf8c514abbe16>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **kitchen:** avoid using bootstrap for ``master`` instances [skip ci] (\ `05a0959 <https://github.com/saltstack-formulas/keepalived-formula/commit/05a095954d5195d28af6c8b467ef28eb9e1b18d0>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **vrrp_sync_group:** added option for vrrp_sync_group (\ `45e3261 <https://github.com/saltstack-formulas/keepalived-formula/commit/45e3261e53b42e611d2d2ec92135bf554f6500f8>`_\ )
+
 `0.4.5 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.4...v0.4.5>`_ (2020-01-27)
 ------------------------------------------------------------------------------------------------------------
 
