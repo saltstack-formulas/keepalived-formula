@@ -9,5 +9,11 @@ control 'Keepalived configuration' do
 
     # Custom config from pillar
     its('content') { should include 'acassen@firewall.loc' }
+
+    # Check config from example pillar -- example vrrp sync group
+    its('content') { should include 'EXAMPLE_GROUP' }
+
+    # Check config from example pillar -- vrrp sync group item
+    its('content') { should include 'VI_IPV6' }
   end
 end
