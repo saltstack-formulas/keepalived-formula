@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/saltstack-formulas/keepalived-formula/compare/v0.5.0...v0.5.1) (2020-04-07)
+
+
+### Bug Fixes
+
+* **service:** restart service if config changes ([0490489](https://github.com/saltstack-formulas/keepalived-formula/commit/0490489614ef1374dadce88c734b8dadfe701f5f)), closes [#37](https://github.com/saltstack-formulas/keepalived-formula/issues/37)
+
 # [0.5.0](https://github.com/saltstack-formulas/keepalived-formula/compare/v0.4.5...v0.5.0) (2020-04-06)
 
 
