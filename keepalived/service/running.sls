@@ -13,5 +13,5 @@ keepalived-service-running-service-running:
   service.running:
     - name: {{ keepalived.service.name }}
     - enable: True
-    - require:
+    - watch:
       - sls: {{ sls_config_file }}
