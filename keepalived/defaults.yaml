@@ -9,3 +9,5 @@ keepalived:
   config:
     global_defs:
       smtp_server: localhost
+  scripts_dir: /etc/keepalived
+  scripts: {}

@@ -3,5 +3,6 @@
 
 include:
   - .package
+  - .scripts
   - .config
   - .service
