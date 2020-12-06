@@ -152,3 +152,34 @@ keepalived:
         script: '"killall -0 apache"'
         interval: 2
         weight: 10
+  # put helper scripts on the minon
+  # defaut directory where scripts will be saved if full path not specified
+  scripts_dir: /etc/keepalived
+  scripts:
+    # item name, will be used as file name if full path not specified
+    check_sshd.sh:
+      # present - create script
+      # absent - remove file
+      ensure: present
+      # user and group for script file, default is root:root
+      # note: it's required to use existing user and group
+      user: root
+      group: root
+      # file mode, default is 755
+      mode: '755'
+      # full path for script, optional
+      # if not defined "scripts_dir + '/' + script" will be used as file name
+      dst_file: /etc/keepalived/check_sshd.sh
+      # 'contents' have more priority than 'template_file',
+      # if 'contents' present, 'template_file' won't be used,
+      # but one of them is mandatory
+      contents: |
+          #!/usr/bin/env bash
+          pidof sshd
+      # source template for script
+      template_file: check_sshd.sh
+      # template engine to use for rendering, default is jinja
+      template_engine: jinja
+      # dict with arbitrary data that will be passed to template as 'data' variable
+      context:
+        foo: bar

@@ -57,6 +57,11 @@ Installs the keepalived package.
 ^^^^^^^^^^^^^^^^^^^^^
 This state manages the file ``keepalived.conf`` under ``/etc/keepalived`` (template found in "keepalived/files"). The configuration is populated by values in "keepalived/map.jinja" based on the package's default values (and RedHat, Debian, Suse and Arch family distribution specific values), which can then be overridden by values of the same name in pillar.
 
+``keepalived.scripts``
+^^^^^^^^^^^^^^^^^^^^^^
+Put arbitrary helper scripts on the minion. Default scripts location: ``/etc/keepalived``
+This state can deploy script, set its permissions like file mode, user and group, but it won't create new user / group if they do not exist.
+
 ``keepalived.service``
 ^^^^^^^^^^^^^^^^^^^^^^
 This state ensures that keepalived service is running.
