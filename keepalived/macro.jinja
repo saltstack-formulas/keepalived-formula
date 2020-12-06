@@ -30,7 +30,12 @@
           {%- if item[value] is string or item[value] is not iterable -%}
             {%- set forwardIndent = 0 -%}
           {%- endif -%}
-          {{- item[key]|indent(carryIndent, True) }} {{ print_config(item[value], recurse=recurse, indent=forwardIndent) -}}
+          {%- if item[value] is sameas true %}
+            {#- If curent parameter is boolen type like nopreempt, dont_track_primary, etc. just print its name -#}
+            {{- item[key]|indent(carryIndent, True) }}{{ '\n' -}}
+          {%- else %}
+            {{- item[key]|indent(carryIndent, True) }} {{ print_config(item[value], recurse=recurse, indent=forwardIndent) -}}
+          {%- endif %}
         {%- endif -%}
       {%- endfor -%}
     {%- else -%}

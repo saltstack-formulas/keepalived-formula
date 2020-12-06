@@ -39,6 +39,10 @@ keepalived:
         virtual_router_id: 51
         priority: 100
         advert_int: 1
+        # switch type parameters must be defined as boolean: true / false
+        # 1 / 0 values will be treated as numbers
+        # nopreempt: true
+        # dont_track_primary: true
         authentication:
           auth_type: PASS
           auth_pass: 1111
