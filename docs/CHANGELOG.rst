@@ -2,6 +2,36 @@
 Changelog
 =========
 
+`0.6.0 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.5.1...v0.6.0>`_ (2020-12-16)
+------------------------------------------------------------------------------------------------------------
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* **gemfile.lock:** add to repo with updated ``Gemfile`` [skip ci] (\ `eebb7e0 <https://github.com/saltstack-formulas/keepalived-formula/commit/eebb7e0ea6b09bf2e9f4b53924842933f1c94fff>`_\ )
+* **gitlab-ci:** use GitLab CI as Travis CI replacement (\ `15e3cdb <https://github.com/saltstack-formulas/keepalived-formula/commit/15e3cdb6a2318f5e9bcb47c885162079013dcaf6>`_\ )
+* **kitchen:** use ``saltimages`` Docker Hub where available [skip ci] (\ `02347ad <https://github.com/saltstack-formulas/keepalived-formula/commit/02347adaac42522fb27bb50dc0211703abfcf7e5>`_\ )
+* **kitchen+travis:** remove ``master-py2-arch-base-latest`` [skip ci] (\ `161c6a6 <https://github.com/saltstack-formulas/keepalived-formula/commit/161c6a615602ec14923e3bfaa05577de3a0adbac>`_\ )
+* **pre-commit:** add to formula [skip ci] (\ `6d36686 <https://github.com/saltstack-formulas/keepalived-formula/commit/6d366861bf53960cb0a6adbee14a06232aaee67e>`_\ )
+* **pre-commit:** enable/disable ``rstcheck`` as relevant [skip ci] (\ `ec4fa7b <https://github.com/saltstack-formulas/keepalived-formula/commit/ec4fa7bc11a1bf050a127cb43b59334d70e04902>`_\ )
+* **pre-commit:** finalise ``rstcheck`` configuration [skip ci] (\ `635902d <https://github.com/saltstack-formulas/keepalived-formula/commit/635902dd4d2eb0e4e003a314520eca4ab9acd75e>`_\ )
+* **travis:** add notifications => zulip [skip ci] (\ `3ae2959 <https://github.com/saltstack-formulas/keepalived-formula/commit/3ae2959f1305a6da1120f5c8e1cbcc7fd7422d70>`_\ )
+* **workflows/commitlint:** add to repo [skip ci] (\ `80bdb6c <https://github.com/saltstack-formulas/keepalived-formula/commit/80bdb6cac4f381441975df7765dab6c0cb690975>`_\ )
+
+Features
+^^^^^^^^
+
+
+* **config:** add support for switch type parameters (\ `20d67c1 <https://github.com/saltstack-formulas/keepalived-formula/commit/20d67c13a17377ef59df9fcd0970354d90aec772>`_\ )
+* **scripts:** deploy helper scripts (\ `5fc37fa <https://github.com/saltstack-formulas/keepalived-formula/commit/5fc37fa6fb319ef8c718b1e8e4979bce77282021>`_\ )
+
+Styles
+^^^^^^
+
+
+* **libtofs.jinja:** use Black-inspired Jinja formatting [skip ci] (\ `16d6742 <https://github.com/saltstack-formulas/keepalived-formula/commit/16d674294900317db54e8133a35a5871553d4afb>`_\ )
+
 `0.5.1 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.5.0...v0.5.1>`_ (2020-04-07)
 ------------------------------------------------------------------------------------------------------------
 
