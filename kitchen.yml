@@ -312,6 +312,7 @@ suites:
       state_top:
         base:
           '*':
+            - keepalived._mapdata
             - keepalived
       pillars:
         top.sls:
