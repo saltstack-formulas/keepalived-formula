@@ -12,6 +12,9 @@ include:
 keepalived-service-running-service-running:
   service.running:
     - name: {{ keepalived.service.name }}
-    - enable: True
     - watch:
       - sls: {{ sls_config_file }}
+
+keepalived-service-running-service-enabled:
+  service.enabled:
+    - name: {{ keepalived.service.name }}
