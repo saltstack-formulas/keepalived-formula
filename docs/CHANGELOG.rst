@@ -2,6 +2,35 @@
 Changelog
 =========
 
+`0.6.1 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.6.0...v0.6.1>`_ (2021-06-04)
+------------------------------------------------------------------------------------------------------------
+
+Bug Fixes
+^^^^^^^^^
+
+
+* **osfamilymap:** add package for Gentoo (\ `f07212d <https://github.com/saltstack-formulas/keepalived-formula/commit/f07212dfbb3256170f2982145b6bed31af42527a>`_\ )
+* **service:** service restart handling with watch requisite (\ `1ae8918 <https://github.com/saltstack-formulas/keepalived-formula/commit/1ae8918f1efee2764fbfe5fd0ba69993d81fce58>`_\ )
+
+Continuous Integration
+^^^^^^^^^^^^^^^^^^^^^^
+
+
+* add ``arch-master`` to matrix and update ``.travis.yml`` [skip ci] (\ `fbc97db <https://github.com/saltstack-formulas/keepalived-formula/commit/fbc97db9404b0b8d0397eb7e4e84d8465c30be22>`_\ )
+* **commitlint:** ensure ``upstream/master`` uses main repo URL [skip ci] (\ `7bc7b0d <https://github.com/saltstack-formulas/keepalived-formula/commit/7bc7b0d002ae3932f9f8fc4b394ee9e8ab383129>`_\ )
+* **gemfile+lock:** use ``ssf`` customised ``kitchen-docker`` repo [skip ci] (\ `5eb060c <https://github.com/saltstack-formulas/keepalived-formula/commit/5eb060cde7db66ec5f3ce8ab7f636f69e6cbdc30>`_\ )
+* **gitlab-ci:** add ``rubocop`` linter (with ``allow_failure``\ ) [skip ci] (\ `b4ec26c <https://github.com/saltstack-formulas/keepalived-formula/commit/b4ec26cffb829c2dcea071105c8e2f722ff37aa9>`_\ )
+* **kitchen+ci:** use latest pre-salted images (after CVE) [skip ci] (\ `d8bce5f <https://github.com/saltstack-formulas/keepalived-formula/commit/d8bce5ff94610fbcb4ee68e74eda49cbaf2cf534>`_\ )
+* **kitchen+gitlab:** adjust matrix to add ``3003`` [skip ci] (\ `7732d92 <https://github.com/saltstack-formulas/keepalived-formula/commit/7732d9245776673ec7b193ebf92ef5b6a3e08b1c>`_\ )
+* **kitchen+gitlab-ci:** use latest pre-salted images [skip ci] (\ `bbb13d1 <https://github.com/saltstack-formulas/keepalived-formula/commit/bbb13d1b18adf8991d67b84c418cece78db1eb0b>`_\ )
+* **pre-commit:** update hook for ``rubocop`` [skip ci] (\ `afb12f1 <https://github.com/saltstack-formulas/keepalived-formula/commit/afb12f1fa82bf44ec723b34a5d8f22d2242af197>`_\ )
+
+Tests
+^^^^^
+
+
+* standardise use of ``share`` suite & ``_mapdata`` state [skip ci] (\ `89986bf <https://github.com/saltstack-formulas/keepalived-formula/commit/89986bfe5ff40cebc69a1edc3e9ad1a4132543e6>`_\ )
+
 `0.6.0 <https://github.com/saltstack-formulas/keepalived-formula/compare/v0.5.1...v0.6.0>`_ (2020-12-16)
 ------------------------------------------------------------------------------------------------------------
 
