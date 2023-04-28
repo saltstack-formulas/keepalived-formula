@@ -4,6 +4,6 @@ os_family: Debian, RedHat, Suse, Gentoo, Arch, Alpine, FreeBSD, OpenBSD, Solaris
 version: 0.6.1
 release: 0
 minimum_version: 2016.11
-summary: Rkhunter formula
+summary: keepalived formula
 description: Formula to use to install and configure keepalived
 top_level_dir: keepalived
