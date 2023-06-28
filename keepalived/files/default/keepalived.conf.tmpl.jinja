@@ -4,7 +4,7 @@
 ########################################################################
 
 {%- from "keepalived/macro.jinja" import print_config %}
-{%- set sections = ['global_defs', 'vrrp_sync_group', 'vrrp_script', 'vrrp_instance', 'virtual_server'] %}
+{%- set sections = ['global_defs', 'vrrp_sync_group', 'vrrp_script', 'vrrp_instance', 'virtual_server', 'virtual_server_group'] %}
 {%- for section in sections %}
 {{ print_config({ section: config[section]|d({}) }) }}
 {%- endfor %}
