@@ -50,6 +50,11 @@ keepalived:
           - 192.168.200.16
           - 192.168.200.17
           - 192.168.200.18
+    virtual_server_group:
+      dns_TCP:
+        - 10.10.10.53 53
+      dns_UDP:
+        - 10.10.10.53 53
     virtual_server:
       # Virtual and real servers include the port as part of the ID.
       192.168.200.100 443:
@@ -147,6 +152,16 @@ keepalived:
               - connect_timeout: 3
               - nb_get_retry: 3
               - delay_before_retry: 3
+      group dns_TCP:
+        protocol: TCP
+        real_server:
+          10.10.10.1 53:
+            weight: 100
+      group dns_UDP:
+        protocol: TCP
+        real_server:
+          10.10.10.1 53:
+            weight: 100
     vrrp_script:
       check_apache:
         script: '"killall -0 apache"'
