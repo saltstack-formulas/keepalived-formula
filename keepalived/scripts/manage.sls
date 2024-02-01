@@ -21,7 +21,7 @@ keepalived-scripts-manage-file-directory:
 {%- endif %}
 
 {%- for script,data in keepalived.scripts|dictsort %}
-  {%- set ensure = data.get('ensure', present) %}
+  {%- set ensure = data.get('ensure', 'present') %}
   {%- if ensure == 'present' %}
 keepalived-scripts-manage-file-managed-{{ script }}:
   file.managed:
